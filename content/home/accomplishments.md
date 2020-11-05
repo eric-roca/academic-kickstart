@@ -1,13 +1,14 @@
 +++
 # Accomplishments widget.
 widget = "accomplishments"  # Do not modify this line!
-active = false  # Activate this widget? true/false
+active = false  # Activate this widget? truefalse
 
 title = "Accomplish&shy;ments"
 subtitle = ""
 
 # Order that this section will appear in.
 weight = 50
+headless = true
 
 # Date format
 #   Refer to https://sourcethemes.com/academic/docs/customization/#date-format

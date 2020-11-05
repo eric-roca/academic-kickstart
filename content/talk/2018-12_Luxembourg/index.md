@@ -2,16 +2,17 @@
 title = "In the Name of the Father: Inheritance Systems and the Dynamics of State Capacity"
 
 # Schedule page publish date.
-date = 2018-12-01T00:00:00
+publishDate = 2018-12-01T00:00:00
 draft = false
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-time_start = 2018-12-12T14:40:00+01:00
-time_end = 2018-12-12T15:20:00+01:00
+date = 2018-12-12T14:40:00+01:00
+date_end = 2018-12-12T15:20:00+01:00
+all_day = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["Èric Roca Fernández"]
+authors = ["Admin"]
 
 # Abstract and optional shortened version.
 abstract = "This paper advances the importance of degree of gender-egalitarianism embedded in inheritance rules in determining state capacity at its early stages during medieval time.  We present a theoretical model whereby state capacity building permits to raise taxes and overcome rivals. It accommodates dynasties in its simplest form and introduces inter-state marriages of landed heirs. On the one hand, dynastic continuity —of utmost importance to European medieval rulers— directly encourages state building. Gender-biased inheritance rules favouring men historically maximise the likelihood of dynastic continuity. We weigh this effect against the indirect impact of more land-merging marriages under gender-egalitarian rules. Contrary to the literature, our results suggest that gender-egalitarian norms —offering low probability of dynastic continuation— promote state capacity in the short run more than gender-biased norms. In the long run results are reversed, providing a rationale for the pervasive European tradition of preferring men over women as heirs."

@@ -1,10 +1,11 @@
 +++
 # Slider widget.
 widget = "slider"  # Do not modify this line!
-active = false  # Activate this widget? true/false
+active = false  # Activate this widget? truefalse
 
 # Order that this section will appear in.
 weight = 1
+headless = true
 
 # Slide interval.
 # Use `false` to disable animation or enter a time in ms, e.g. `5000` (5s).

@@ -1,0 +1,393 @@
+
+\documentclass[11pt,a4paper,english]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{changepage}
+\usepackage{pdflscape}
+\usepackage{natbib}
+\setlength{\bibsep}{0.0pt}
+\usepackage{hyperref}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{multirow}
+\usepackage[singlespacing]{setspace}
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{soul,color}
+\usepackage{authblk}
+\usepackage{array}
+\usepackage{subcaption}
+\usepackage{afterpage}
+\usepackage[bottom]{footmisc}
+
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
+
+\setlength{\abovedisplayskip}{2.5pt}
+\setlength{\belowdisplayskip}{2.5pt}
+
+% Commands from http://www.jwe.cc/2012/03/stata-latex-tables-estout/
+% *****************************************************************
+% Estout related things
+% *****************************************************************
+\newcommand{\sym}[1]{\rlap{#1}} 
+\let\estinput=\input% define a new input command so that we can still flatten the document
+\newcommand{\estwide}[3]{
+		\vspace{.75ex}{
+			\begin{tabular*}
+			{\linewidth}{@{\hskip\tabcolsep\extracolsep\fill}l*{#2}{#3}}
+			\toprule
+			\estinput{#1}
+			\bottomrule
+			%\addlinespace[.75ex]
+			\end{tabular*}
+			}
+		}	
+
+\newcommand{\estauto}[3]{
+	\vspace{.75ex}{
+		\begin{tabular}{l*{#2}{#3}}
+		\toprule
+		\estinput{#1}
+		\bottomrule
+		%\addlinespace[.75ex]
+		\end{tabular}
+		}
+	}
+
+		
+% Allow line breaks with \\ in specialcells
+	\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+% *****************************************************************
+% Custom subcaptions
+% *****************************************************************
+% Note/Source/Text after Tables
+\newcommand{\figtext}[1]{
+	\captionsetup{justification=justified,font=footnotesize}
+	\caption*{\hspace{6pt}\hangindent=1.5em #1}
+	}
+\newcommand{\fignote}[1]{\figtext{\emph{Note:~}~#1}}
+
+\newcommand{\figsource}[1]{\figtext{\emph{Source:~}~#1}}
+
+\newcommand{\figsummary}[1]{\figtext{\emph{Summary:~}~#1}}
+
+% Add significance note with \starnote
+\newcommand{\starnote}{
+	\vspace{-1.9ex}
+	\captionsetup{justification=justified, singlelinecheck=false, font=footnotesize}
+	\caption*{\hspace{6pt}\hangindent=1.5em 
+	\figtext{${}^{*}\, p < 0.1$, ${}^{**}\, p < 0.05$, ${}^{***}\, p < 0.01$. Standard errors in parentheses.}}
+}
+
+% Stars
+\def\stars{${}^{*}\, p < 0.1$, ${}^{**}\, p < 0.05$, ${}^{***}\, p < 0.01$.}
+
+% *****************************************************************
+% siunitx
+% *****************************************************************
+\usepackage{siunitx} % centering in tables
+%	\sisetup{
+%		detect-mode,
+%		tight-spacing		= true,
+%		group-digits		= false ,
+%		input-signs		= ,
+%		input-symbols		= ( ) [ ] - + *,
+%		input-open-uncertainty	= ,
+%		input-close-uncertainty	= ,
+%		table-align-text-post	= false
+%        }
+\sisetup{parse-numbers = false}
+
+\title{Some additional notes}
+\author[1]{\`{E}ric Roca Fern\'{a}ndez}
+\date{}
+
+
+
+\begin{document}
+
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+
+\maketitle
+
+\section{Interest rates and wages using the CES production function}
+
+Suppose that $F(K,L) = (\alpha K^\rho + (1-\alpha) L^\rho)^\frac{1}{\rho}.$
+We can compute the interest rate and wages in the intensive form using several alternatives:
+
+\subsection{Derive the function $F$}
+
+First compute the derivative with respect to capital:
+
+\begin{align*}
+    r = F_{K}(K,L) =& \frac{1}{\rho}\left(\alpha K^\rho + (1-\alpha) L^\rho\right)^\frac{1-\rho}{\rho}\alpha \rho K^{\rho-1} \\
+    =& \alpha \left( \alpha K^\rho + (1-\alpha)L^\rho \right)^\frac{1-\rho}{\rho} K^{\rho-1} = \\
+    =& \alpha \left( \alpha K^\rho + (1-\alpha)L^\rho \right)^\frac{1-\rho}{\rho} \underbrace{\frac{K^{\rho-1}}{L^{\rho-1}}}_{=k^{\rho-1}}L^{\rho-1} = \\
+    =& \alpha \left( \underbrace{L^{\frac{\rho-1}{1-\rho}\rho}}_{=L^{-\rho}}(\alpha K^\rho + (1-\alpha)L^\rho) \right)^\frac{1-\rho}{\rho}k^{\rho-1} = \\
+    =& \alpha \left( \alpha \frac{K^\rho}{L^\rho} + (1-\alpha)\frac{L^\rho}{L^\rho} \right)^\frac{1-\rho}{\rho}k^{\rho-1} = \\
+    =& \alpha \left(\alpha k^\rho + (1-\alpha) \right)^\frac{1-\rho}{\rho}k^{\rho-1}.
+\end{align*}
+
+Since $f(k) = \left(\alpha k^\rho + (1-\alpha) \right)^\frac{1}{\rho}$, then:
+
+\begin{align*}
+    r &= \alpha \left(\alpha k^\rho + (1-\alpha) \right)^\frac{1-\rho}{\rho}k^{\rho-1} = \\
+     &= \alpha \left(\alpha k^\rho + (1-\alpha) \right)^\frac{1}{\rho} \left(\alpha k^\rho + (1-\alpha)\right)^{-1} k^{\rho-1} = \\
+     &= \alpha f(k) \left( \alpha k^\rho + (1-\alpha) \right)^\frac{-\rho}{\rho} k^{\rho-1} = \\
+     &= \alpha f(k) f(k)^{-\rho} k^{\rho-1} = \\
+     &= \alpha f(k)^{1-\rho} k^{\rho-1} = \\
+     &= \alpha \left( \frac{f(k)}{k}\right)^{1-\rho}.
+\end{align*}
+
+Next, we do the same for labour:
+
+\begin{align*}
+    w = F_{L}(K,L) =& \frac{1}{\rho}\left( \alpha K^\rho + (1-\alpha) L^\rho \right)^\frac{1-\rho}{\rho} (1-\alpha)\rho L^{\rho-1} = \\
+    =& (1-\alpha) \left(\alpha K^\rho + (1-\alpha)L^\rho \right)^\frac{1-\rho}{\rho} L^{\rho-1} = \\
+    =& (1-\alpha) \left( \underbrace{L^{(\rho-1)\frac{\rho}{1-\rho}}}_{=L^{-\rho}} \left( \alpha K^\rho + (1-\alpha) L^\rho \right)\right)^\frac{1-\rho}{\rho} = \\
+    =& (1-\alpha) \left( \alpha \frac{K^\rho}{L^\rho} + (1-\alpha) \frac{L^\rho}{L^\rho}\right)^\frac{1-\rho}{\rho} = \\
+    =& (1-\alpha) \left(\alpha k^\rho + (1-\alpha) \right)^\frac{1-\rho}{\rho}.
+\end{align*}
+
+We proceed as before:
+
+\begin{align*}
+    w =& (1-\alpha)\left(\alpha k^\rho + (1-\alpha)\right)^\frac{1-\rho}{\rho} = \\
+    =& (1-\alpha)\left(\alpha k^\rho + (1-\alpha)\right)^\frac{1}{\rho}\left(\alpha k^\rho + (1-\alpha)\right)^\frac{-\rho}{\rho} = \\
+        =& (1-\alpha)f(k)f(k)^{-\rho} = \\
+        =& (1-\alpha)f(k)^{1-\rho}.
+    \end{align*}
+
+\subsection{Use the intensive forms}
+
+In that case, first write the production function in intensive terms and compute the derivatives.
+Since $F$ is homogenous of degree one, we have that:
+
+$$F\left( \frac{K}{L}, \frac{L}{L} \right) = \frac{1}{L} F(K,L).$$
+Also, we define
+
+$$f(k) = F\left(\frac{K}{L}, 1\right).$$
+
+Hence, $$F(K,L) = L f(k) = L f\left(\frac{K}{L}\right).$$
+
+We have a CES production function that satifies:
+
+\begin{align*}
+    F(K,L) &= (\alpha K^\rho + (1-\alpha)L^\rho)^\frac{1}{\rho} \\
+    \frac{1}{L} F(K,L) &= F\left(\frac{K}{L},1\right) =\\
+    &= F\left( \alpha \left(\frac{K}{L}\right)^\rho + (1-\alpha) \left(\frac{L}{L}\right)^\rho\right)^\frac{1}{\rho} = \\
+    &= \left(\alpha k^\rho + (1-\alpha)\right)^\frac{1}{\rho}.\\
+    &\mathrm{or} \\
+    \frac{1}{L} F(K,L) &= \frac{1}{L} \left(\alpha K^\rho + (1-\alpha)L^\rho\right)^\frac{1}{\rho} = \\
+    &= \left(L^{-\rho}\left(\alpha K^\rho + (1-\alpha)L^\rho\right)\right)^\frac{1}{\rho} = \\
+    &= \left(\alpha k^\rho + (1-\alpha)\right)^\frac{1}{\rho}.
+\end{align*}
+
+From here, we can compute the derivatives as we did before:
+
+\begin{align*}
+    r = F_K (K,L) =& \frac{\partial  L f\left( \frac{K}{L} \right)}{\partial K} = L f^\prime\left(\frac{K}{L}\right) \frac{1}{L} = \\
+    =& f^\prime\left(\frac{K}{L}\right) = \\
+    =& f^\prime(k).
+\end{align*}
+
+Using $ f(k) = \left( \alpha k^\rho + (1-\alpha)\right)^\frac{1}{\rho}$ we get:
+
+\begin{align*}
+    r =& f^\prime(k) = \\
+=& \frac{1}{\rho}\left(\alpha k^\rho + (1-\alpha)\right)^\frac{1-\rho}{\rho}\alpha \rho  k^{\rho-1} = \\
+=& \alpha \left(\frac{f(k)}{k}\right)^{1-\rho}.
+\end{align*}
+
+For wages we have:
+
+\begin{align*}
+    w = F_L(K,L) =& \frac{\partial L f\left( \frac{K}{L} \right)}{\partial L} = f\left(\frac{K}{L}\right) + f^\prime\left(\frac{K}{L}\right)\frac{-K}{L^2}L  = \\
+    =& f(k) - f^\prime(k) k.
+\end{align*}
+
+Substituting $f(k) = \left(\alpha k^\rho + (1-\alpha)\right)^\frac{1}{\rho}$:
+
+\begin{align*}
+    w =& f(k) - f^\prime(k) k = \\
+    =&\left( \alpha k^\rho + (1-\alpha)\right)^\frac{1}{\rho}  - \frac{1}{\rho}\left( \alpha k^\rho + (1-\alpha)\right)^\frac{1-\rho}{\rho}\alpha \rho k^{1-\rho} k^\rho = \\
+    =&\left( \alpha k^\rho + (1-\alpha)\right)^\frac{1}{\rho}  - \alpha\left( \alpha k^\rho + (1-\alpha)\right)^\frac{1-\rho}{\rho}k^\rho = \\
+    =& f(k) - \alpha\left( \alpha k^\rho + (1-\alpha)\right)^\frac{1}{\rho}\left( \alpha k^\rho + (1-\alpha)\right)^{-1} k^\rho = \\
+    =& f(k) - \alpha f(k)f(k)^{-\rho}k^\rho = \\
+    =& f(k) - \alpha f(k)^{1-\rho}k^\rho = \\
+    =& f(k)^{1-\rho}\left(f(k)^\rho - \alpha k^\rho\right) = \\
+    =& f(k)^{1-\rho}\left(\alpha k^\rho + (1-\alpha) - \alpha k^\rho\right) = \\
+    =& f(k)^{1-\rho}(1-\alpha).
+\end{align*}
+
+
+\section{The Jacobian matrix using total differentiation}
+
+The two dynamic equations of the Ramsey model are:
+
+\begin{align*}
+    u^\prime(c_{t}) =& \beta(f^\prime(k_{t+1}) + 1 - \delta) u^\prime(c_{t+1}),\\
+    k_{t+1} =& f(k_{t}) + (1-\delta)k_{t} - c_{t}.
+\end{align*}
+
+We are interested in computing $\frac{\mathrm{d} c_{t+1}}{\mathrm{d} c_t}.$
+
+Take the first equation of the dynamic system and differentiate it with respect to $c_t$ and $c_{t+1}$, noting that $k_{t+1}$ depends on $c_{t}.$
+
+\begin{equation*}
+    u^{\prime \prime}(c_t)\mathrm{d}c_t = \beta \overbrace{f^{\prime \prime}(k_{t+1})(-1)}^{k_{t+1}\, \mathrm{has}\, c_t}u^\prime(c_{t+1})\mathrm{d}c_t + \beta(f^\prime(k_{t+1}) + 1 - \delta)u^{\prime \prime}(c_{t+1})\mathrm{d}c_{t+1}.
+\end{equation*}
+
+Hence:
+
+\begin{equation*}
+    \frac{\mathrm{d}c_{t+1}}{\mathrm{d}c_t} = \frac{u^{\prime \prime}(c_t) + \beta f^{\prime \prime}(k_{t+1}) u^\prime (c_{t+1})}{\beta \left(f^\prime (k_{t+1}) + 1 - \delta \right) u^{\prime \prime}(c_{t+1})}.
+\end{equation*}
+
+Similarly, we can differentiate with respect to $c_{t+1}$ and $k_t$:
+
+\begin{equation*}
+    0 = \beta u^\prime (c_{t+1})f^{\prime \prime}(k_{t+1})\left(f^\prime (k_t)+1-\delta\right)\mathrm{d}k_t + \beta\left(f^\prime(k_{t+1}) + 1 - \delta \right)u^{\prime \prime}(c_{t+1})\mathrm{d}c_{t+1}.
+\end{equation*}
+
+Hence:
+
+\begin{equation*}
+    \frac{\mathrm{d}c_{t+1}}{\mathrm{d}k_t} = -\frac{\beta u^\prime(c_{t+1})f^{\prime \prime}(k_{t+1})\left(f^\prime(k_t)+1-\delta\right)}{\beta \left( f^\prime(k_{t+1})+1-\delta\right)u^{\prime \prime}(c_{t+1})}.
+\end{equation*}
+
+\section{Notes on the phase diagram}
+
+The Ramsey model represents the economy using a system of first-order difference equations.
+
+\begin{align*}
+    u^\prime(c_t) =&\beta (f^\prime(k_{t+1}) + 1 - \delta) u^\prime(c_{t+1}) \\
+    k_{t+1} =& f(k_t) + (1-\delta)k_t - c_t.
+\end{align*}
+
+In the phase diagram, we represent the combinations of $k$ and $c$ such that the either capital or consumption remain constant.
+
+\subsection{The dyamics of $c$}
+
+The first equation describes the dynamics of consumption in the economy.
+If consumption has to remain constant, this implies that $c_t = c_{t+1}.$
+Using this information we can compute the level of capital such that consumption is constant.
+In fact,
+
+\begin{align*}
+    u^\prime(c_t) =& \beta (f^\prime(k_{t+1}) + 1 - \delta)\overbrace{u^\prime(c_t)}^{c_t=c_{t+1}} \implies\\
+    1 =& \beta(f^\prime(k_{t+1}) + 1 - \delta).
+\end{align*}
+
+Denote $\bar{k}$ the level of capital that satifies this equality.
+Suppose that $k > \bar{k}.$
+Then, $f^\prime(k) < f^\prime(\bar{k}).$
+Therefore, going back to the dynamic equation we have
+
+\begin{align*}
+    \frac{u^\prime(c_t)}{u^\prime(c_{t+1})} <& 1 \implies u^\prime(c_t) < u^\prime(c_{t+1}) \implies \\
+        \implies c_t > c_{t+1}& \, \mathrm{or}\, c_{t+1} < c_t.
+\end{align*}
+
+Consequently, consumption falls over time.
+Digramatically, we represent it indicating that for $k > \bar{k}$, consumption falls.
+In the diagram, notice that the condition $1 = \beta(f^\prime(k_{t+1}) + 1 - \delta)$ is a vertical line:
+
+\begin{align*}
+    1 =& \beta (f^\prime(\bar{k}) + 1 - \delta) \\
+    f^\prime(\bar{k}) =& \underbrace{\frac{1}{\beta}}_{>1}+\delta-1.
+\end{align*}
+
+Since $f^\prime$ is a decreasing function with $\lim_{k\rightarrow 0}f^\prime(k) = +\infty$ and $\lim_{k\rightarrow \infty}f^\prime(k) = 0,$ there is only one solution to this equation.
+In the phase, this information is represented as follows:
+
+\vspace{1em}
+\begin{minipage}{0.45\textwidth}
+\centering
+\includegraphics[width=\linewidth]{"/home/eric/eric-roca.github.io/static/img/ramsey/dynamics_c"}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+\centering
+\includegraphics[width=\linewidth]{"/home/eric/eric-roca.github.io/static/img/ramsey/dynamics_g"}
+\end{minipage}
+
+\subsection{The dynamics of $k$}
+
+We can proceed similarly for capital, noting that the relevant equation that determines its dyamic behaviour is:
+
+\begin{equation*}
+    k_{t+1} = f(k_t) + (1-\delta)k_t - c_t.
+\end{equation*}
+
+As before, if capital has to remain constant it implies that $k_t = k_{t+1}$, and impossing this on the equation above allows us to compute the combinations of capital and consumption such that the former is constant.
+Hence, the level of consumption that implies a constant level of capital ($\bar{c}$) is given by:
+
+\begin{equation*}
+    \bar{c} = f(k) - \delta k.
+\end{equation*}
+
+Notice that this function is inversely U-shaped, with one maximum:
+
+\begin{align*}
+    \bar{c}^\prime =& f^\prime(k) - \delta, \\
+    \bar{c}^{\prime \prime} =& f^{\prime \prime}(k) < 0
+\end{align*}
+
+From the first line, we have a maximum at:
+
+\begin{equation*}
+    f^\prime(k) - \delta = 0 \implies f^\prime(k) = \delta.
+\end{equation*}
+
+Notice that this maximum corresponds to a level of capital \emph{higher} that the one that ensures $c_t = c_{t+1}.$
+In fact, $c_t = c_{t+1}$ implies $f^\prime(k) = \frac{1}{\beta}+\delta-1 > \delta$ meaning that such level is smaller than the one maximising $\bar{c}.$
+
+Finally, we analyse the evoluton of capital.
+Write the change in the level of capital as:
+
+\begin{equation*}
+    k_{t+1} - k_t = f(k_t) + (1-\delta)k_t - k_t - c_t = f(k_t) - \delta k_t -c_t.
+\end{equation*}
+
+For a consumption level above the one that keeps capital constant we  have:
+\begin{equation*}
+    k_{t+1} - k_t < 0 \implies k_{t+1} < k_t
+\end{equation*}
+
+and capital decreases.
+
+\subsection{The phase diagram}
+
+We can finally combine together the two previous graphs and obtain the phase diagram.
+Using it, we know the dynamics of capital and consumption at any given point.
+The intersection of the two curves represents the steady state: it is the combination of capital and consumption such that both variables remain constant.
+
+Finally, we know that this model features a saddle-path.
+This means that all inital combinations of capital and consumption diverge, except for one unique combination that converges towards the steady state.
+The following figure illustrates this idea:
+
+\vspace{1em}
+\begin{minipage}{0.45\textwidth}
+\centering
+\includegraphics[width=\linewidth]{"/home/eric/eric-roca.github.io/static/img/ramsey/phase_diagram"}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+\centering
+\includegraphics[width=\linewidth]{"/home/eric/eric-roca.github.io/static/img/ramsey/dynamics_global"}
+\end{minipage}
+
+
+
+
+
+
+
+\end{document}

@@ -1,13 +1,14 @@
 +++
 # Contact widget.
 widget = "contact"  # Do not modify this line!
-active = true  # Activate this widget? true/false
+active = true  # Activate this widget? truefalse
 
 title = "Contact"
 subtitle = ""
 
 # Order that this section will appear in.
 weight = 130
+headless = true
 
 # Automatically link email and phone?
 autolink = true

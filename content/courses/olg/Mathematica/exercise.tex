@@ -1,0 +1,135 @@
+\documentclass[11pt,twoside,a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage[parfill]{parskip}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+
+
+\begin{document}
+\textbf{Solutions to the exercise.}
+
+First, using the utility representation, we have to compute the savings function.
+Households utility is given by 
+$$u(c)=\frac{c^{1-\frac{1}{2}}}{1-\frac{1}{2}}.$$
+It is sbubject to the intertemporal budget constraint, which we can write as:
+$$w_t = c_t + s_t, \quad d_{t+1} = s_{t} R_{t+1}$$
+or
+$$w_{t} = c_{t} + \frac{d_{t+1}}{R_{t+1}}.$$
+
+We maximise the total discounted utility subject to the constraint:
+
+$$\max_{s_{t}} u(\underbrace{w_{t}-s_{t}}_{c_{t}}) + \beta u(\underbrace{s_{t}R_{t+1}}_{d_{t+1}}).$$
+
+In our case, it becomes:
+
+$$\max_{s_t} \frac{(w_{t}-s_{t})^{1-\frac{1}{2}}}{1-\frac{1}{2}} + \beta \frac{(R_{t+1}s_{t})^{1-\frac{1}{2}}}{1-\frac{1}{2}}.$$
+The first order condition is:
+
+$$(w_{t}-s_{t})^{-\frac{1}{2}} = \beta R_{t+1} (R_{t+1}s_{t})^{-\frac{1}{2}}.$$
+
+If we rearrange, we can obtain a closed-form solution for the savings.
+Notice that we use a CIES utility function.
+Therefore, the interest rate \emph{must} appear in the expression for savings.
+
+$$w_t - s_t = (\beta R_{t+1})^{-2} R_{t+1}s_t \implies s_t = \frac{w_t}{1+\beta^{-2}R^{-1}}=w_t \frac{\beta^2 R_{t+1}}{\beta^2 R_{t+1} +1 }.$$
+
+We can check several things, for instance, that savings increase in the wages and that the marginal propensity to save is between $0$ and $1$ (as is the case in the OLG model):
+
+$$\frac{\partial s_t}{\partial w_t} = \frac{\beta^2 R_{t+1}}{\beta^2 R_{t+1} + 1} \in (0,1) > 0.$$
+
+And also, savings increase with the interest rate.
+\emph{Note:} savings increase in with the interest rate because $\sigma > 1.$ If we had, instead $0 < \sigma < 1$ savings would have been decreasing.
+
+$$\frac{\partial s_t}{\partial R_{t+1}} = w_{t}\frac{\beta^2}{(1+\beta^2 R_{t+1})^2} > 0.$$
+
+Next, we can use the market clearing conditions for interests and wages.
+In particular, we were given a Cobb-Douglas production function with $\alpha=\frac{1}{2}.$
+Therefore, we have the following:
+
+$$w_t(k_t) = f(k_t) - f^\prime (k_t)k_t = (1 - \alpha) {k_t}^\alpha = \frac{1}{2} {k_t}^\frac{1}{2},$$
+$$R_t(k_t) = f^\prime (k_t) = \alpha {k_t}^{\alpha-1} = \frac{1}{2} {k_t}^{-\frac{1}{2}}.$$
+
+\emph{Some notes:} I am not presenting the temporary equilibrium here, you can always do this.
+Also, the existence of a temporary equilibrium is guaranteed because the functions that define it are single-valued.
+In the OLG model, the existence of an intertemporal equilibrium is also guaranteed.
+In particular, finding an intertemporal equilibrium means finding a value $k_{t+1}$ such that
+
+$$k_{t+1} = \frac{1}{1+n}s\left(\omega(k_t),R_{t+1}\right) = \frac{1}{1+n}\left( \omega(k_t) f^\prime k(t_{t+1})\right)$$
+for a given value of capital $k_t.$
+In words, the idea is that if we are given a value $k_t$, can we compute $k_{t+1}$?
+The answer is yes!
+To see this, let $H(k_{t+1}) = k_{t+1} - \frac{1}{1+n}\left( \omega(k_t), f^\prime k(t_{t+1})\right).$
+We can show that 
+
+$$\lim_{k_{t+1} \rightarrow 0} H(k_{t+1}) <0 \quad \mathrm{and} \quad \lim_{k_{t+1} \rightarrow +\infty} H(k_{t+1}) > 0.$$
+
+Therefore, by the intermediate value theorem we know that at least one solution exists.
+We can further show that the solution is unique by showing that the function $H(k_{t+1})$ is increasing in $k_{t+1}$, this is, that the function is monotonous.
+\emph{Note:} the function coul have been monotonously decreasing and we would also have had a unique solution.
+However, we know that it goes from negative to positive, if anything, it must be monotonically increasing.
+We can check it:
+
+$$\frac{\partial H(k_{t+1})}{\partial k_{t+1}} = 1 - \frac{1}{1+n}s^{\prime}_{R}, f^{\prime \prime}(k_{t+1}).$$
+In our case, this expression becomes:
+
+$$\frac{\partial H(k_{t+1})}{\partial k_{t+1}} = 1 - \frac{1}{1+n}w_{t}\frac{k_{t+1}^\alpha (\alpha -1) \alpha \beta^2}{(1+\beta^2 \alpha {k_{t+1}}^{\alpha - 1})^2} > 0.$$
+
+Next, we can compute the steady states of the economy.
+First, notice that we have a Cobb-Douglas production function.
+Hence, $f(0)=0$ and we know that an autarky steady state with $\bar{k}=0$ exists.
+So we should find it.
+We solve for the steady states using the functional forms we have, and imposing $n=0, \alpha=\frac{1}{2}, \sigma =2.$
+
+$$\bar{k} = w_t \frac{\beta^2 R_{t+1}}{1+\beta^2 R_{t+1}} = \underbrace{\frac{1}{2}\bar{k}^\frac{1}{2}}_{w} \frac{\beta^2 \overbrace{\frac{1}{2}\bar{k}^{-\frac{1}{2}}}^{R}}{1+\beta^2 \underbrace{\frac{1}{2}\bar{k}^{-\frac{1}{2}}}_{R}} = \frac{1}{4}\frac{\beta^2}{1+\beta^2 \frac{1}{2}\bar{k}^{-\frac{1}{2}}}=\frac{\beta^2 \bar{k}^\frac{1}{2}}{4\bar{k}^\frac{1}{2} + 2 \beta^2}$$
+
+Taking the denominator to right-hand side and subtrating we can arrive at:
+
+$$2 \beta^2 \bar{k} + 4 \bar{k}^\frac{3}{2} - \beta^2 \bar{k}^\frac{1}{2} = \bar{k}^\frac{1}{2}\left(2 \beta^2 \bar{k}^\frac{1}{2} + 4 \bar{k} - \beta^2\right)=0.$$
+
+Hence, either $bar{k} = 0$ or $2 \beta^2 \bar{k}^\frac{1}{2} + 4\bar{k} - \beta^2 = 0$.
+For the second case, we can find a solution for $\bar{k},$ the actual value is not crucial in what follows but it would be nice if you could compute it.
+
+Finally, we check the stability of each of the \emph{two} steady states.
+First, let's write the derivative of $k_{t+1}$ with respect to $k_t$ using the fact that
+
+$$k_{t+1} = \underbrace{(1-\alpha){k_t}^\alpha}_{w_t} \frac{R^2 \overbrace{\alpha {k_{t+1}}^{\alpha -1}}^{R_{t+1}}}{1+\beta^2 \underbrace{\alpha {k_{t+1}}^{\alpha -1}}_{R_{t+1}}}= {k_t}^\frac{1}{2} \frac{\beta^2 {k_{t+1}}^{-\frac{1}{2}}}{4+2 \beta^2 {k_{t+1}}^{-\frac{1}{2}}} = {k_t}^\frac{1}{2} \frac{\beta^2}{4 {k_{t+1}}^\frac{1}{2} + 2 \beta^2}$$
+or
+$$k_{t+1}\left(4 {k_{t+1}}^\frac{1}{2} + 2\beta^2\right) = {k_t}^\frac{1}{2}\beta^2.$$
+Then:
+
+$$\frac{\partial k_{t+1}}{\partial k_t} = \frac{\beta^2 \frac{1}{2} {k_t}^{-\frac{1}{2}}}{4 {k_{t+1}}^\frac{1}{2} + 2 \beta^2 + 2 {k_{t+1}}^\frac{1}{2}}.$$
+
+Evaluating it at $k_t = k_{t+1} = \bar{k} = 0$ yields
+
+$$\frac{\beta^2 \frac{1}{2} \overbrace{{0}^{-\frac{1}{2}}}^{\infty}}{4 \underbrace{{0}^\frac{1}{2}}_{0} + 2 \beta^2 + 2 \underbrace{{0}^\frac{1}{2}}_{0}} = \infty,$$
+
+and the steady state $\bar{k}=0$ is unstable.
+
+For the second steady state we can use the capital accumulation equation (we tweaked it a little bit)
+
+$$k_{t+1}\left(4 {k_{t+1}}^\frac{1}{2} + 2\beta^2\right) = {k_t}^\frac{1}{2}\beta^2$$
+
+evaluated at the steady state, this is,
+
+$$\bar{k}\left(4 {\bar{k}}^\frac{1}{2} + 2\beta^2\right) = {\bar{k}}^\frac{1}{2}\beta^2$$
+
+Notice that the part within parentheses appears in the denominator of $\frac{\partial k_{t+1}}{\partial k_t}$ when it is evaluated at the steady state.
+Hence, we can substitute 
+$$\left(4 {\bar{k}}^\frac{1}{2} + 2\beta^2\right) = \frac{{\bar{k}}^\frac{1}{2}\beta^2}{\bar{k}} = \bar{k}^{-\frac{1}{2}} \beta^2.$$
+
+So $\frac{\partial k_{t+1}}{\partial k_t} = \frac{\beta^2 \frac{1}{2} {k_t}^{-\frac{1}{2}}}{4 {k_{t+1}}^\frac{1}{2} + 2 \beta^2 + 2 {k_{t+1}}^\frac{1}{2}}$, once evaluated at the steady state becomes:
+
+$$\frac{\beta^2 \frac{1}{2} {\bar{k}}^{-\frac{1}{2}}}{4 {\bar{k}}^\frac{1}{2} + 2 \beta^2 + 2 {\bar{k}}^\frac{1}{2}}.$$
+
+Substituting $\bar{k}\left(4 {\bar{k}}^\frac{1}{2} + 2\beta^2\right) = {\bar{k}}^\frac{1}{2}\beta^2$ we obtain:
+
+$$\frac{\frac{1}{2} \beta^2 \bar{k}^{-\frac{1}{2}}}{2 \bar{k}^\frac{1}{2} + \beta^2 \bar{k}^{-\frac{1}{2}}} = \frac{\frac{1}{2} \beta^2}{2\bar{k} + \beta^2} = \frac{\beta^2}{4\bar{k} +2\beta^2} < 1,$$
+
+and the second steady state is stable.
+\begin{center}
+\includegraphics[width=0.75\linewidth]{"/home/eric/g1"}
+\end{center}
+
+\end{document}
+    

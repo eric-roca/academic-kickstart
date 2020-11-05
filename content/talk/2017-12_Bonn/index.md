@@ -2,16 +2,17 @@
 title = "Roots of Gender Equality: the Persistent Effect of Beguinages on Atitudes Toward Women"
 
 # Schedule page publish date.
-date = 2017-11-01T00:00:00
+publishDate = 2017-11-01T00:00:00
 draft  = false
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-time_start = 2017-12-13T10:40:00+02:00
-time_end = 2017-12-13T11:40:00+02:00
+date = 2017-12-13T10:40:00+02:00
+date_end = 2017-12-13T11:40:00+02:00
+all_day = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["Annalisa Frigo", "Èric Roca Fernández"]
+authors = ["Annalisa Frigo", "Admin"]
 
 # Abstract and optional shortened version.
 abstract = "There is consistent evidence that historical events and past institutions can shape the evolution of culture in a way that survives over time and affects economic outcomes today. This study is aimed at assessing whether those regions of the Low Countries that were more exposed to the presence of beguine communities in medieval times are characterized by a more gender-equal culture during the 19th century. We test whether the persistence of gender norms that has been extensively examined in the literature holds true also for the cultural legacy of the semi-religious movement of the beguines. An IV strategy supports the robustness of our findings establishing that the variation in gender literacy observed in the 19th century is indeed related to the presence of beguinages and not to confounding factors."

@@ -2,16 +2,17 @@
 title = "If Children Suffer when Mothers Work, Do They Work Less?"
 
 # Schedule page publish date.
-date = 2017-09-01T00:00:00
+publishDate = 2017-09-01T00:00:00
 draft = false
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-time_start = 2018-09-14T11:00:00+02:00
-time_end = 2018-09-14T11:45:00+02:00
+date = 2018-09-14T11:00:00+02:00
+date_end = 2018-09-14T11:45:00+02:00
+all_day = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["Èric Roca Fernández"]
+authors = ["Admin"]
 
 # Abstract and optional shortened version.
 abstract = "This paper studies a new determinant of female employment in the context of developing countries. Using data from sub-Saharan regions, it advances that maternal job-taking varies with the mortality risk premium it poses to children. Reductions in maternal employment are sizeable and reach 5.6 percentage points among affluent families in more developed areas. We do not find such evidence among poor households, suggesting financial constraints may impede trading off maternal income against children safety. The effect we document applies only to families with under-five infants. We introduce a theoretical model rationalising our findings. It also generates a Ushaped relationship between economic prosperity and female employment." 
@@ -50,7 +51,7 @@ tags = []
 slides = ""
 
 # Links (optional).
-url_slides = "/slides/2018-09_Lyon.pdf"
+url_slides = "/slides/Eric Roca Fernandez - EALE poster.pdf"
 url_video = ""
 url_pdf = "/papers/Eric Roca Fernandez - Child mortality and FLFP.pdf"
 url_code = ""

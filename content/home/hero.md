@@ -1,8 +1,9 @@
 +++
 # Hero widget.
 widget = "hero"  # Do not modify this line!
-active = false  # Activate this widget? true/false
+active = false  # Activate this widget? truefalse
 weight = 10  # Order that this section will appear.
+headless = true
 
 title = "Academic"
 

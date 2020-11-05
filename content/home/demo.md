@@ -4,8 +4,9 @@
 # Add more sections by duplicating this file and customizing to your requirements.
 
 widget = "blank"  # Do not modify this line!
-active = false  # Activate this widget? true/false
+active = false  # Activate this widget? truefalse
 weight = 15  # Order that this section will appear.
+headless = true
 
 # Note: a full width section format can be enabled by commenting out the `title` and `subtitle` with a `#`.
 title = "Academic Kickstart"

@@ -2,13 +2,14 @@
 title = "'Now She's Martha, then She's Mary': The Influence of Beguinages on Attitudes Toward Women"
 
 # Schedule page publish date.
-date = 2016-11-21T11:15:00+05:30
+publishDate = 2016-11-21T11:15:00+05:30
 draft = false
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-time_start = 2016-11-21T11:15:00+05:30
-time_end = 2016-11-21T11:45:00+05:30
+date = 2016-11-21T11:15:00+05:30
+date_end = 2016-11-21T11:45:00+05:30
+all_day = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = ["Annalisa Frigo", "Èric Roca Fernández"]

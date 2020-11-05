@@ -1,13 +1,14 @@
 +++
 # Experience widget.
 widget = "experience"  # Do not modify this line!
-active = false  # Activate this widget? true/false
+active = false  # Activate this widget? truefalse
 
 title = "Experience"
 subtitle = ""
 
 # Order that this section will appear in.
 weight = 40
+headless = true
 
 # Date format for experience
 #   Refer to https://sourcethemes.com/academic/docs/customization/#date-format
